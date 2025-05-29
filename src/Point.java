@@ -14,7 +14,7 @@ public class Point {
         this.x = point.x;
         this.y = point.y;
     }
-    // Конструктор
+
     public Point(double x, double y) {
         if (!isValidInput(x) || !isValidInput(y)) {
             throw new IllegalArgumentException("Некорректные координаты");

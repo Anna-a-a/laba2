@@ -1,9 +1,14 @@
 import java.util.Scanner;
 
+//Fixme: Нет разделения по пакетам (package model, package app, package util)
+//Fixme: Нет тестов или валидации данных в Main
+//Fixme: Нет использования Enum, List, Optional — всё вручную и на массивах
+// Методы часто используют System.out.println() напрямую — в реальных проектах используют логгеры
 
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        //Fixme: стоит вынести создание точек, линий и студентов в отдельные методы
 
         System.out.println("Введите координаты для первой точки (X Y):");
         double x1 = inputCoordinate(scanner, "X");
@@ -36,11 +41,14 @@ public class Main {
 
         Line line1 = new Line(point1Start, point1End);
         Line line2 = new Line(point2Start, point2End);
-        Line line3 = new Line(point1Start, point2End);
+        Line line3 = new Line(point1Start, line2.getEnd());
 
         System.out.println("Линия 1: " + line1.toString());
         System.out.println("Линия 2: " + line2.toString());
         System.out.println("Линия 3: " + line3.toString());
+
+        point2End.setX(111);
+        point2End.setY(111);
 
         System.out.println("Линия 1 до изменения: " + line1.toString());
         System.out.println("Линия 2 до изменения: " + line2.toString());
@@ -63,6 +71,7 @@ public class Main {
         //3 задача
 
         int[] vasyaGrades = {3, 4, 5};
+        // Fixme: Имена переменных должны начинаться с маленькой буквы: vasya, petya
         Student Vasya = new Student("Вася", vasyaGrades);
         Student Petya = new Student("Петя", vasyaGrades);
 
